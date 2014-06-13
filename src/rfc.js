@@ -2,11 +2,7 @@
 var StringUtilities = {
 	getFirstVowel: function(word){
 		vowels = word.match(new RegExp('[AEIOU]'));
-		if(vowels) {
-			return vowels[0];
-		} else {
-			return 'X';
-		}
+		return vowels[0] || 'X';
 	}
 	clearString: function(word) {
 		cleanWord = word.trim();
@@ -20,7 +16,7 @@ var mxk = {
 	getCURP: 		function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, bornState, gender) {
 
 							rfc = this->getCommonPart(name, surnameFather, surnameFather, bornDay, bornMonth, bornYear);
-							
+
 					}
 
 	getCommonPart: 	function(name, surnameFather, surnameMother, bornDate) {
