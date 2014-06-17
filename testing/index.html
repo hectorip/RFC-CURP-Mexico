@@ -3,10 +3,46 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="foundation/css/foundation.css" />
+    <script src="foundation/js/vendor/modernizr.js"></script>
 	<title> Mexican RFC and Curp </title>
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	
+	<h1>Mexican RFC and Curp</h1>
+	<form action="">
+		
+		<div class="row">
+		    <div class="large-12 columns">
+		      <label> Name
+		        <input type="text" placeholder="Name" name="name-input"/>
+		      </label>
+		    </div>
+		</div>
+
+		<div class="row">
+		    <div class="large-12 columns">
+		      <label> Surname 1
+		        <input type="text" placeholder="Name" name="surname1-input"/>
+		      </label>
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="large-12 columns">
+		      <label> Surname 2
+		        <input type="text" placeholder="Name" name="surname2-input"/>
+		      </label>
+		    </div>
+		</div>
+		
+
+	</form>
+
+    <script src="foundation/js/vendor/jquery.js"></script>
+    <script src="foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
 </body>
 </html>
