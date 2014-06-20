@@ -5,8 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="foundation/css/foundation.css" />
+    <link rel="stylesheet" href="foundation/css/foundation-datepicker.css" />
     <script src="foundation/js/vendor/modernizr.js"></script>
-	<title> Mexican RFC and Curp </title>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+	<title> Mexican RFC and Curp Example</title>
 	<link rel="stylesheet" href="">
 </head>
 <body>
@@ -35,14 +37,23 @@
 		      </label>
 		    </div>
 		</div>
+		<div class="row">
+		    <div class="large-12 columns">
+		      <label> Born Date
+		        <input type="text" placeholder="Name" name="born-date-input" id="born-date-input"/>
+		      </label>
+		    </div>
+		</div>
 		
 
 	</form>
 
     <script src="foundation/js/vendor/jquery.js"></script>
     <script src="foundation/js/foundation.min.js"></script>
+    <script src="foundation/js/foundation-datepicker.js"></script>
     <script>
       $(document).foundation();
+      $('#born-date-input').fdatepicker({"format" : "dd/mm/yy"});
     </script>
 </body>
 </html>
