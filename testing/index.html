@@ -45,11 +45,15 @@
 		    </div>
 		</div>
 		
-		<a href="#" class="button" id='calculateButton'>Calculate</a>
-
-		<div class="large-12 columns">
+		<div class="row">
+		    <div class="large-12 columns">
+				<a href="#" class="button" id='calculateButton'>Calculate</a>
+			</div>
+		</div>
+		<div class = "row">
+			<div class="large-12 columns">
 		      <label> Result RFC
-		        <input type="text" placeholder="Name" name="resilt_field" id="resilt_field"/>
+		        <input type="text" placeholder="Name" name="result_field" id="result_field"/>
 		      </label>
 		    </div>
 		</div>
@@ -66,8 +70,7 @@
 
         $(document).foundation();
         $('#born-date-input').fdatepicker({"format" : "dd/mm/yy"});
-        $('#calculateButton').onClick(function(event){
-
+        $('#calculateButton').click(function(event){
         	event.preventDefault();
         	event.stopPropagation();
 
@@ -77,9 +80,11 @@
 
         	bornDate = $('#born-date-input').val();
 
-        	bornDateSeparated = borndate.split('/');
+        	bornDateSeparated = bornDate.split('/');
 
-        	$('#result_field').val()
+        	result = mxk.getCURP(name, surname1, surname2, bornDateSeparated[0], bornDateSeparated[1], bornDateSeparated[2]);
+
+        	$('#result_field').val(result);
 
         });
 
