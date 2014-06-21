@@ -19,7 +19,7 @@ var mxk = {
 
 					}
 
-	getCommonPart: 	function(name, surnameFather, surnameMother, bornDate) {
+	getCommonPart: 	function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear) {
 		
 							name 	= StringUtilities->clearString(name);
 							surnameFather = StringUtilities->clearString(surnameFather);

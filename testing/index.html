@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="foundation/css/foundation-datepicker.css" />
     <script src="foundation/js/vendor/modernizr.js"></script>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+
 	<title> Mexican RFC and Curp Example</title>
-	<link rel="stylesheet" href="">
 </head>
 <body>
 	<h1>Mexican RFC and Curp</h1>
@@ -18,7 +18,7 @@
 		<div class="row">
 		    <div class="large-12 columns">
 		      <label> Name
-		        <input type="text" placeholder="Name" name="name-input"/>
+		        <input type="text" placeholder="Name" id="name-input" name="name-input"/>
 		      </label>
 		    </div>
 		</div>
@@ -26,14 +26,14 @@
 		<div class="row">
 		    <div class="large-12 columns">
 		      <label> Surname 1
-		        <input type="text" placeholder="Name" name="surname1-input"/>
+		        <input type="text" placeholder="Name" name="surname1-input" id="surname1-input"/>
 		      </label>
 		    </div>
 		</div>
 		<div class="row">
 		    <div class="large-12 columns">
 		      <label> Surname 2
-		        <input type="text" placeholder="Name" name="surname2-input"/>
+		        <input type="text" placeholder="Name" name="surname2-input" id="surname2-input"/>
 		      </label>
 		    </div>
 		</div>
@@ -45,15 +45,47 @@
 		    </div>
 		</div>
 		
+		<a href="#" class="button" id='calculateButton'>Calculate</a>
+
+		<div class="large-12 columns">
+		      <label> Result RFC
+		        <input type="text" placeholder="Name" name="resilt_field" id="resilt_field"/>
+		      </label>
+		    </div>
+		</div>
 
 	</form>
 
     <script src="foundation/js/vendor/jquery.js"></script>
     <script src="foundation/js/foundation.min.js"></script>
     <script src="foundation/js/foundation-datepicker.js"></script>
+    <script src="../src/rfc.js" type="text/javascript" charset="utf-8" async defer></script>
     <script>
-      $(document).foundation();
-      $('#born-date-input').fdatepicker({"format" : "dd/mm/yy"});
+      
+      $(document).ready(function(){
+
+        $(document).foundation();
+        $('#born-date-input').fdatepicker({"format" : "dd/mm/yy"});
+        $('#calculateButton').onClick(function(event){
+
+        	event.preventDefault();
+        	event.stopPropagation();
+
+        	name = $('#name-input').val();
+        	surname1 = $('#surname1-input').val();
+        	surname2 = $('#surname2-input').val();
+
+        	bornDate = $('#born-date-input').val();
+
+        	bornDateSeparated = borndate.split('/');
+
+        	$('#result_field').val()
+
+        });
+
+      });
+     
+
     </script>
 </body>
 </html>
