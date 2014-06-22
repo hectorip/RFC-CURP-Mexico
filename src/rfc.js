@@ -1,7 +1,11 @@
 
 var StringUtilities = {
-	getFirstVowel: function(word){
-		vowels = word.match(new RegExp('[AEIOU]'));
+	getFirstInternVowel: function(word){
+		vowels = word.substring(1).match(new RegExp('[AEIOU]'));
+		return vowels[0] || 'X';
+	},
+	getFirstInternConsonant: function(word){
+		vowels = word.substring(1).match(new RegExp('[BCDFGHJKLMNPQRSTUVWXYZ]'));
 		return vowels[0] || 'X';
 	},
 	clearString: function(word) {
@@ -30,7 +34,7 @@ var mxk = {
 							bornYear =		StringUtilities.clearString(bornYear);
 
 							commonPart = surnameFather[0];
-							commonPart += StringUtilities.getFirstVowel(surnameFather);
+							commonPart += StringUtilities.getFirstInternVowel(surnameFather);
 							commonPart += surnameMother[0];
 							commonPart += name[0];
 
