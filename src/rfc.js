@@ -19,8 +19,8 @@ var mxk = {
 
 	getCURP: 		function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, bornState, gender) {
 
-							rfc = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear);
-							return rfc;
+							curp = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear);
+							return curp;
 
 					},
 
@@ -43,5 +43,44 @@ var mxk = {
 							commonPart += bornDay;
 							 return commonPart;
 					}
+	getBornStateCode: function(idState){
 
+		states = [
+				{name: "AGUASCALIENTES" , code: "AS"}, //1
+				{name: "BAJA CALIFORNIA" , code: "BC"},
+				{name: "BAJA CALIFORNIA SUR" , code: "BS"},
+				{name: "CAMPECHE" , code: "CC"},
+				{name: "COAHUILA" , code: "CL"},
+				{name: "COLIMA" , code: "CM"},
+				{name: "CHIAPAS" , code: "CS"},
+				{name: "CHIHUAHUA" , code: "CH"},
+				{name: "DISTRITO FEDERAL" , code: "DF"},
+				{name: "DURANGO" , code: "DG"},
+				{name: "GUANAJUATO" , code: "GT"},
+				{name: "GUERRERO" , code: "GR"},
+				{name: "HIDALGO" , code: "HG"},
+				{name: "JALISCO" , code: "JC"},
+				{name: "MÉXICO" , code: "MC"},
+				{name: "MICHOACÁN" , code: "MN"},
+				{name: "MORELOS" , code: "MS"},
+				{name: "NAYARIT" , code: "NT"},
+				{name: "NUEVO , codeLEÓN" "NL"},
+				{name: "OAXACA" , code: "OC"},
+				{name: "PUEBLA" , code: "PL"},
+				{name: "QUERÉTARO" , code: "QT"},
+				{name: "QUINTANA ROO" , code: "QR"},
+				{name: "SAN LUIS POTOSÍ" , code: "SP"},
+				{name: "SINALOA" , code: "SL"},
+				{name: "SONORA" , code: "SR"},
+				{name: "TABASCO" , code: "TC"},
+				{name: "TAMAULIPAS" , code: "TS"},
+				{name: "TLAXCALA" , code: "TL"},
+				{name: "VERACRUZ" , code: "VZ"},
+				{name: "YUCATÁN" , code: "YN"},
+				{name: "ZACATECAS" , code: "ZS"} //32
+				];
+
+		return states[idState].code;
+
+	}
 }
