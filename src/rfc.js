@@ -2,11 +2,11 @@
 var StringUtilities = {
 	getFirstInternVowel: function(word){
 		vowels = word.substring(1).match(new RegExp('[AEIOU]'));
-		return vowels[0] || 'X';
+		return vowels ? vowels[0] : 'X';
 	},
 	getFirstInternConsonant: function(word){
 		vowels = word.substring(1).match(new RegExp('[BCDFGHJKLMNPQRSTUVWXYZ]'));
-		return vowels[0] || 'X';
+		return vowels ? vowels[0] : 'X';
 	},
 	clearString: function(word) {
 		cleanWord = word.trim();
@@ -19,13 +19,6 @@ var mxk = {
 
 	getCURP: 		function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, bornState, gender) {
 
-							curp = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear);
-							return curp;
-
-					},
-
-	getCommonPart: 	function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear) {
-		
 							name 	= StringUtilities.clearString(name);
 							surnameFather = StringUtilities.clearString(surnameFather);
 							surnameMother = StringUtilities.clearString(surnameMother);
@@ -33,6 +26,21 @@ var mxk = {
 							bornMonth =		StringUtilities.clearString(bornMonth);
 							bornYear =		StringUtilities.clearString(bornYear);
 
+							curp = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear);
+							curp += this.getGenderLetter(gender);
+							curp += this.getBornStateCode(bornState);
+							curp += StringUtilities.getFirstInternConsonant(surnameFather);
+							curp += StringUtilities.getFirstInternConsonant(surnameMother);
+							curp += StringUtilities.getFirstInternConsonant(name);
+
+							curp += '00'
+
+							return curp;
+
+					},
+
+	getCommonPart: 	function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear) {
+		
 							commonPart = surnameFather[0];
 							commonPart += StringUtilities.getFirstInternVowel(surnameFather);
 							commonPart += surnameMother[0];
@@ -42,10 +50,14 @@ var mxk = {
 							commonPart += bornMonth;
 							commonPart += bornDay;
 							 return commonPart;
-					}
-	getBornStateCode: function(idState){
-
-		states = [
+					},
+	getBornStateCode: function(idState){		
+						return this.states[idState].code;
+					},
+	getGenderLetter: function(idGender){
+						return idGender == 1 ? 'H' : 'M';
+					},
+	states: new Array(
 				{name: "AGUASCALIENTES" , code: "AS"}, //1
 				{name: "BAJA CALIFORNIA" , code: "BC"},
 				{name: "BAJA CALIFORNIA SUR" , code: "BS"},
@@ -64,7 +76,7 @@ var mxk = {
 				{name: "MICHOACÁN" , code: "MN"},
 				{name: "MORELOS" , code: "MS"},
 				{name: "NAYARIT" , code: "NT"},
-				{name: "NUEVO , codeLEÓN" "NL"},
+				{name: "NUEVO LEÓN", code: "NL"},
 				{name: "OAXACA" , code: "OC"},
 				{name: "PUEBLA" , code: "PL"},
 				{name: "QUERÉTARO" , code: "QT"},
@@ -78,9 +90,6 @@ var mxk = {
 				{name: "VERACRUZ" , code: "VZ"},
 				{name: "YUCATÁN" , code: "YN"},
 				{name: "ZACATECAS" , code: "ZS"} //32
-				];
+				)
 
-		return states[idState].code;
-
-	}
 }
