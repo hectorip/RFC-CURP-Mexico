@@ -33,7 +33,8 @@ var mxk = {
 							curp += StringUtilities.getFirstInternConsonant(surnameMother);
 							curp += StringUtilities.getFirstInternConsonant(name);
 
-							curp += '00'
+							curp += this.getSpecialChar(bornYear);
+
 
 							return curp;
 
@@ -56,6 +57,13 @@ var mxk = {
 					},
 	getGenderLetter: function(idGender){
 						return idGender == 1 ? 'H' : 'M';
+					},
+	getSpecialChar: function(bornYear){
+						if(bornYear[0] == '1') {
+							return '0';
+						} else {
+							return 'A';
+						}
 					},
 	states: new Array(
 				{name: "AGUASCALIENTES" , code: "AS"}, //1
