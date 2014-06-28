@@ -9,7 +9,9 @@ var StringUtilities = {
 		return vowels ? vowels[0] : 'X';
 	},
 	clearString: function(word) {
+
 		cleanWord = word.trim();
+		cleanword.replace(/\s/g,' ');
 		return cleanWord.toUpperCase();
 	}
 }
@@ -64,6 +66,17 @@ var mxk = {
 						} else {
 							return 'A';
 						}
+					},
+	removeCommonNames: function(name) {
+
+						if(name.indexOf(' ')){
+							separatedNames 	= name.split(' ');
+							firstName 		= separatedNames[0];
+							if(firstName in notAcceptedNames) {
+								return separatedNames[1];
+							}
+						}
+
 					},
 	states: new Array(
 				{name: "AGUASCALIENTES" , code: "AS"}, //1
