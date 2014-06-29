@@ -13,7 +13,12 @@ var StringUtilities = {
 		cleanWord = word.trim();
 		cleanword.replace(/\s/g,' ');
 		return cleanWord.toUpperCase();
+	},
+	removeAccents: function(word)
+	{
+		accents = //todo
 	}
+
 }
 
 var mxk = {
@@ -68,15 +73,13 @@ var mxk = {
 						}
 					},
 	removeCommonNames: function(name) {
-
-						if(name.indexOf(' ')){
-							separatedNames 	= name.split(' ');
-							firstName 		= separatedNames[0];
-							if(firstName in notAcceptedNames) {
-								return separatedNames[1];
-							}
-						}
-
+						this.notAcceptedNames.forEach(
+							function(notAccepted){
+								name = name.replace(new RegExp('^' + notAccepted,g),'');
+							}	
+							);
+						
+						return name;
 					},
 	states: new Array(
 				{name: "AGUASCALIENTES" , code: "AS"}, //1
@@ -111,6 +114,16 @@ var mxk = {
 				{name: "VERACRUZ" , code: "VZ"},
 				{name: "YUCATÁN" , code: "YN"},
 				{name: "ZACATECAS" , code: "ZS"} //32
-				)
+				),
+	notAcceptedNames: new Array(
+		'MARIA ',
+		'MARIA DE LOS '
+		'JOSE ',
+		'JOSÉ DE ',
+		'MA. ',
+		'MA ',
+		'J ',
+		'J. '
+		)
 
 }
