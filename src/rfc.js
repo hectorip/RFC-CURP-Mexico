@@ -16,7 +16,19 @@ var StringUtilities = {
 	},
 	removeAccents: function(word)
 	{
-		accents = //todo
+		accents = {
+			'Á': 'A',
+			'É': 'E',
+			'Í': 'I',
+			'Ó': 'O',
+			'Ú': 'U' 
+		}
+
+		for(idx in word) {
+			if (word[idx] in accents) {
+				word[idx] = accents[word[idx]];
+			}
+		}
 	}
 
 }
