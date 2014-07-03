@@ -11,7 +11,7 @@ var StringUtilities = {
 	clearString: function(word) {
 
 		cleanWord = word.trim();
-		cleanword.replace(/\s/g,' ');
+		cleanword = cleanword.replace(/\s/g,' ');
 		return cleanWord.toUpperCase();
 	},
 	removeAccents: function(word)
@@ -24,11 +24,10 @@ var StringUtilities = {
 			'Ú': 'U' 
 		}
 
-		for(idx in word) {
-			if (word[idx] in accents) {
-				word[idx] = accents[word[idx]];
-			}
+		for(accented in accents) {
+			word = word.replace(new RegExp(accented),accents[accented]);
 		}
+		return word;
 	}
 
 }
@@ -129,7 +128,7 @@ var mxk = {
 				),
 	notAcceptedNames: new Array(
 		'MARIA ',
-		'MARIA DE LOS '
+		'MARIA DE LOS ',
 		'JOSE ',
 		'JOSÉ DE ',
 		'MA. ',
