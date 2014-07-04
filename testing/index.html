@@ -97,7 +97,9 @@
 
 
         	name = $('#name-input').val();
-        	alert(StringUtilities.removeAccents(name));
+        	name = StringUtilities.removeAccents(name);
+        	name = mxk.removeCommonNames(name);
+        	alert();
         	return 0;
         	surname1 = $('#surname1-input').val();
         	surname2 = $('#surname2-input').val();

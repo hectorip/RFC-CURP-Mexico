@@ -35,7 +35,7 @@ var StringUtilities = {
 var mxk = {
 
 
-	getCURP: 		function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, bornState, gender) {
+	getCURP: function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, bornState, gender) {
 
 							name 	= StringUtilities.clearString(name);
 							surnameFather = StringUtilities.clearString(surnameFather);
@@ -57,6 +57,20 @@ var mxk = {
 							return curp;
 
 					},
+	getRFC: function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, bornState, gender) {
+
+		name 			= StringUtilities.clearString(name);
+		surnameFather 	= StringUtilities.clearString(surnameFather);
+		surnameMother 	= StringUtilities.clearString(surnameMother);
+		bornDay 		= StringUtilities.clearString(bornDay);
+		bornMonth 		= StringUtilities.clearString(bornMonth);
+		bornYear 		= StringUtilities.clearString(bornYear);
+
+		rfc = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear);
+		 //impolement key method
+		return rfc;
+
+	},
 
 	getCommonPart: 	function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear) {
 		
@@ -86,7 +100,7 @@ var mxk = {
 	removeCommonNames: function(name) {
 						this.notAcceptedNames.forEach(
 							function(notAccepted){
-								name = name.replace(new RegExp('^' + notAccepted,g),'');
+								name = name.replace(new RegExp('^' + notAccepted),'');
 							}	
 							);
 						
@@ -128,6 +142,7 @@ var mxk = {
 				),
 	notAcceptedNames: new Array(
 		'MARIA ',
+		'MARIA DEL ',
 		'MARIA DE LOS ',
 		'JOSE ',
 		'JOSÉ DE ',
@@ -136,5 +151,4 @@ var mxk = {
 		'J ',
 		'J. '
 		)
-
 }
