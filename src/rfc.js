@@ -11,7 +11,7 @@ var StringUtilities = {
 	clearString: function(word) {
 
 		cleanWord = word.trim();
-		cleanword = cleanword.replace(/\s/g,' ');
+		cleanWord = cleanWord.replace(/\s/g,' ');
 		return cleanWord.toUpperCase();
 	},
 	removeAccents: function(word)
@@ -79,6 +79,10 @@ var mxk = {
 							commonPart += surnameMother[0];
 							commonPart += name[0];
 
+							if(commonPart in this.badWords) {
+								commonPart = this.badWord[commonPart];
+							}
+
 							commonPart += bornYear.substring(2);
 							commonPart += bornMonth;
 							commonPart += bornDay;
@@ -141,14 +145,97 @@ var mxk = {
 				{name: "ZACATECAS" , code: "ZS"} //32
 				),
 	notAcceptedNames: new Array(
-		'MARIA ',
 		'MARIA DEL ',
 		'MARIA DE LOS ',
+		'MARIA ',
+		'JOSE DE ',
 		'JOSE ',
-		'JOSÉ DE ',
 		'MA. ',
 		'MA ',
-		'J ',
-		'J. '
+		'M. ',
+		'J. ',
+		'J '
 		)
+	badWords: new Array(
+		"BACA": "BXCA",
+		"LOCO": "LXCO",
+		"BAKA": "BXKA",
+		"BUEI": "BXEI",
+		"BUEY": "BXEY",
+		"CACA": "CXCA",
+		"CACO": "CXCO",
+		"CAGA": "CXGA",
+		"CAGO": "CXGO",
+		"CAKA": "CXKA",
+		"CAKO": "CXKO",
+		"COGE": "CXGE",
+		"COGI": "CXGI",
+		"COJA": "CXJA",
+		"COJE": "CXJE",
+		"COJI": "CXJI",
+		"COJO": "CXJO",
+		"COLA": "CXLA",
+		"CULO": "CXLO",
+		"FALO": "FXLO",
+		"FETO": "FXTO",
+		"GETA": "GXTA",
+		"GUEI": "GXEI",
+		"GUEY": "GXEY",
+		"JETA": "JXTA",
+		"JOTO": "JXTO",
+		"KACA": "KXCA",
+		"KACO": "KXCO",
+		"KAGA": "KXGA",
+		"KAGO": "KXGO",
+		"KAKA": "KXKA",
+		"KAKO": "KXKO",
+		"KOGE": "KXGE",
+		"KOGI": "KXGI",
+		"KOJA": "KXJA",
+		"KOJE": "KXJE",
+		"KOJI": "KXJI",
+		"KOJO": "KXJO",
+		"KOLA": "KXLA",
+		"KULO": "KXLO",
+		"LILO": "LXLO",
+		"LOKA": "LXKA",
+		"LOKO": "LXKO",
+		"MAME": "MXME",
+		"MAMO": "MXMO",
+		"MEAR": "MXAR",
+		"MEAS": "MXAS",
+		"MEON": "MXON",
+		"MIAR": "MXAR",
+		"MION": "MXON",
+		"MOCO": "MXCO",
+		"MOKO": "MXKO",
+		"MULA": "MXLA",
+		"MULO": "MXLO",
+		"NACA": "NXCA",
+		"NACO": "NXCO",
+		"PEDA": "PXDA",
+		"PEDO": "PXDO",
+		"PENE": "PXNE",
+		"PIPI": "PXPI",
+		"PITO": "PXTO",
+		"POPO": "PXPO",
+		"PUTA": "PXTA",
+		"PUTO": "PXTO",
+		"QULO": "QXLO",
+		"RATA": "RXTA",
+		"ROBA": "RXBA",
+		"ROBE": "RXBE",
+		"ROBO": "RXBO",
+		"RUIN": "RXIN",
+		"SENO": "SXNO",
+		"TETA": "TXTA",
+		"VACA": "VXCA",
+		"VAGA": "VXGA",
+		"VAGO": "VXGO",
+		"VAKA": "VXKA",
+		"VUEI": "VXEI",
+		"VUEY": "VXEY",
+		"WUEI": "WXEI",
+		"WUEY": "WXEY"
+	)
 }
