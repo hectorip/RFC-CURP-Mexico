@@ -12,7 +12,8 @@ var StringUtilities = {
 
 		cleanWord = word.trim();
 		cleanWord = cleanWord.replace(/\s/g,' ');
-		return cleanWord.toUpperCase();
+		cleanWord = this.removeAccents(cleanWord.toUpperCase());
+		return cleanWord;
 	},
 	removeAccents: function(word)
 	{
@@ -38,6 +39,7 @@ var mxk = {
 	getCURP: function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, bornState, gender) {
 
 							name 	= StringUtilities.clearString(name);
+							name = this.removeCommonNames(name);
 							surnameFather = StringUtilities.clearString(surnameFather);
 							surnameMother = StringUtilities.clearString(surnameMother);
 							bornDay =		StringUtilities.clearString(bornDay);
@@ -80,7 +82,7 @@ var mxk = {
 							commonPart += name[0];
 
 							if(commonPart in this.badWords) {
-								commonPart = this.badWord[commonPart];
+								commonPart = this.badWords[commonPart];
 							}
 
 							commonPart += bornYear.substring(2);
@@ -155,8 +157,8 @@ var mxk = {
 		'M. ',
 		'J. ',
 		'J '
-		)
-	badWords: new Array(
+		),
+	badWords: {
 		"BACA": "BXCA",
 		"LOCO": "LXCO",
 		"BAKA": "BXKA",
@@ -237,5 +239,5 @@ var mxk = {
 		"VUEY": "VXEY",
 		"WUEI": "WXEI",
 		"WUEY": "WXEY"
-	)
+	}
 }
