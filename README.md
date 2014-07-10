@@ -7,4 +7,4 @@ Based on official Documents:
 
 CURP https://dl.dropbox.com/u/38547143/InstructivoParaLaCurp_v2008.pdf
 
-RFC https://dl.dropbox.com/u/38547143/GeneracionRFC.doc
+RFC https://dl.dropboxusercontent.com/u/38547143/GeneracionRFC.pdf
