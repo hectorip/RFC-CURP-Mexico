@@ -36,6 +36,7 @@ var StringUtilities = {
 var mxk = {
 
 
+
 	getCURP: function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, bornState, gender) {
 
 							name 	= StringUtilities.clearString(name);
@@ -47,6 +48,9 @@ var mxk = {
 							bornYear =		StringUtilities.clearString(bornYear);
 
 							curp = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear);
+							
+							//TODO Remove bad words
+
 							curp += this.getGenderLetter(gender);
 							curp += this.getBornStateCode(bornState);
 							curp += StringUtilities.getFirstInternConsonant(surnameFather);
@@ -81,13 +85,12 @@ var mxk = {
 							commonPart += surnameMother[0];
 							commonPart += name[0];
 
-							if(commonPart in this.badWords) {
-								commonPart = this.badWords[commonPart];
-							}
-
+							
 							commonPart += bornYear.substring(2);
 							commonPart += bornMonth;
 							commonPart += bornDay;
+
+							//todo, remove bad words
 							 return commonPart;
 					},
 	getBornStateCode: function(idState){		
@@ -112,6 +115,14 @@ var mxk = {
 						
 						return name;
 					},
+
+	removeBadWordsRFC: function(word){
+		if(word in this.badWordsRFC) {
+			word[3] = 'X'
+		}
+		return word;
+	},
+	
 	states: new Array(
 				{name: "AGUASCALIENTES" , code: "AS"}, //1
 				{name: "BAJA CALIFORNIA" , code: "BC"},
@@ -240,4 +251,46 @@ var mxk = {
 		"WUEI": "WXEI",
 		"WUEY": "WXEY"
 	}
+
+	badWordsRFC : [
+					"BUEI"
+					"BUEY"
+					"CACA"
+					"CACO"
+					"CAGA"
+					"CAGO"
+					"CAKA"
+					"COGE"
+					"COJA"
+					"COJE"
+					"COJI"
+					"COJO"
+					"CULO"
+					"FETO"
+					"GUEY"
+					"JOTO"
+					"KACA"
+					"KACO"
+					"KAGA"
+					"KAGO"
+					"KOGE"
+					"KOJO"
+					"KAKA"
+					"KULO"
+					"MAME"
+					"MAMO"
+					"MEAR"
+					"MEON"
+					"MION"
+					"MOCO"
+					"MULA"
+					"PEDA"
+					"PEDO"
+					"PENE"
+					"PUTA"
+					"PUTO"
+					"QULO"
+					"RATA"
+					"RUIN"
+				];
 }
