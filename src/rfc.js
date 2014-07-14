@@ -35,17 +35,15 @@ var StringUtilities = {
 
 var mxk = {
 
-
-
 	getCURP: function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, bornState, gender) {
 
-							name 	= StringUtilities.clearString(name);
-							name = this.removeCommonNames(name);
-							surnameFather = StringUtilities.clearString(surnameFather);
-							surnameMother = StringUtilities.clearString(surnameMother);
-							bornDay =		StringUtilities.clearString(bornDay);
-							bornMonth =		StringUtilities.clearString(bornMonth);
-							bornYear =		StringUtilities.clearString(bornYear);
+							name 			= StringUtilities.clearString(name);
+							name 			= this.removeCommonNames(name);
+							surnameFather 	= StringUtilities.clearString(surnameFather);
+							surnameMother 	= StringUtilities.clearString(surnameMother);
+							bornDay 		= StringUtilities.clearString(bornDay);
+							bornMonth 		= StringUtilities.clearString(bornMonth);
+							bornYear 		= StringUtilities.clearString(bornYear);
 
 							curp = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear);
 							
@@ -293,7 +291,7 @@ var mxk = {
 					"RATA"
 					"RUIN"
 				],
-	characterValues:[
+	characterValues
 				"0" :  '00'
 				"1" :  '01' 
 				"2" :  '02'
