@@ -87,13 +87,21 @@
 <script src="src/rfc.js"></script>
 <script>
   mxk.fillBornStateSelect("born_state");
-  document.getElementById('calculate_button').addEventListener('click', function(){
+  document.getElementById('calculate_button').addEventListener('click', function(event){
+    event.preventDefault()
+    event.stopPropagation()
     name =  document.getElementById("first_name").value;
     father_surname =  document.getElementById("father_surname").value;
     mother_surname =  document.getElementById("mother_surname").value;
     born_date =  document.getElementById("born_date").value;
     born_state =  document.getElementById("born_state").value;
-    alert(born_state);
+    gender =  document.getElementById("gender").value;
+    
+    rfc_field = document.getElementById("rfc-result")
+    curp_field = document.getElementById("curp-result")
+    born_date = born_date.split('/')
+    rfc_field.value = mxk.getRFC(name, father_surname, mother_surname, born_date[0], born_date[1], born_date[2], born_state, gender);
+    curp_field.value = mxk.getCURP(name, father_surname, mother_surname, born_date[0], born_date[1], born_date[2], born_state, gender);
   });
 </script>
 <!-- End Document

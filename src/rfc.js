@@ -50,12 +50,16 @@ var mxk = {
                             //TODO Remove bad words
 
                             curp += this.getGenderLetter(gender);
-                            curp += this.getBornStateCode(bornState);
+                            if(bornState.length !== 2){
+                                bornState = this.getBornStateCode(bornState);
+                            } 
+                            curp += born_state
                             curp += StringUtilities.getFirstInternConsonant(surnameFather);
                             curp += StringUtilities.getFirstInternConsonant(surnameMother);
                             curp += StringUtilities.getFirstInternConsonant(name);
 
                             curp += this.getSpecialChar(bornYear);
+                            curp += "?" // The last character is a random cahracter
 
 
                             return curp;
