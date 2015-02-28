@@ -45,7 +45,7 @@ var mxk = {
                             bornMonth       = StringUtilities.clearString(bornMonth);
                             bornYear        = StringUtilities.clearString(bornYear);
 
-                            curp = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear);
+                            curp = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear,0);
                             
                             //TODO Remove bad words
 
@@ -74,19 +74,21 @@ var mxk = {
         bornMonth       = StringUtilities.clearString(bornMonth);
         bornYear        = StringUtilities.clearString(bornYear);
 
-        rfc = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear);
+        rfc = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, 1);
          //impolement key method
         return rfc;
 
     },
 
-    getCommonPart:  function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear) {
+    getCommonPart:  function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, type) {
         
                             commonPart = surnameFather[0];
                             commonPart += StringUtilities.getFirstInternVowel(surnameFather);
                             commonPart += surnameMother[0];
                             commonPart += name[0];
-
+                            if(type==0){
+                                commonPart = this.removeBadWordsCURP(commonPart)
+                            }
                             
                             commonPart += bornYear.substring(2);
                             commonPart += bornMonth;
@@ -121,6 +123,12 @@ var mxk = {
     removeBadWordsRFC: function(word){
         if(word in this.badWordsRFC) {
             word[3] = 'X'
+        }
+        return word;
+    },
+    removeBadWordsCURP: function(word){
+        if(this.badWordsCURP[word]){
+            return this.badWordsCURP[word]
         }
         return word;
     },
@@ -171,7 +179,7 @@ var mxk = {
         'J. ',
         'J '
         ),
-    badWords: {
+    badWordsCURP: {
         "BACA": "BXCA",
         "LOCO": "LXCO",
         "BAKA": "BXKA",
