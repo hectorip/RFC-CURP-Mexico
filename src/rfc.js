@@ -336,9 +336,12 @@ var mxk = {
         element = document.getElementById(field_id);
         console.log(element)
         this.states.forEach(function(state){
-            option = new Option(state.name, state.value)
+            option = new Option(state.name, state.code)
             element.appendChild(option)
         });
-        
+    // setRFCResultField: function(field_id){
+    //     element= document.getElementById(field_id)
+    // }  
+    //}
     }
 }

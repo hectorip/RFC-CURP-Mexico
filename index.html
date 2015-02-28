@@ -66,7 +66,7 @@
                   <option value="1"> Hombre </option>
                 </select>
               </div>
-              <button class="button button-primary"> Calcular </button>
+              <button class="button button-primary" id="calculate_button"> Calcular </button>
             </fieldset>
         </form>
       </div>
@@ -87,6 +87,14 @@
 <script src="src/rfc.js"></script>
 <script>
   mxk.fillBornStateSelect("born_state");
+  document.getElementById('calculate_button').addEventListener('click', function(){
+    name =  document.getElementById("first_name").value;
+    father_surname =  document.getElementById("father_surname").value;
+    mother_surname =  document.getElementById("mother_surname").value;
+    born_date =  document.getElementById("born_date").value;
+    born_state =  document.getElementById("born_state").value;
+    alert(born_state);
+  });
 </script>
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
