@@ -86,10 +86,7 @@ var mxk = {
                             commonPart += StringUtilities.getFirstInternVowel(surnameFather);
                             commonPart += surnameMother[0];
                             commonPart += name[0];
-                            if(type==0){
-                                commonPart = this.removeBadWordsCURP(commonPart)
-                            }
-                            
+                            commonPart = this.removeBadWords(commonPart, type)
                             commonPart += bornYear.substring(2);
                             commonPart += bornMonth;
                             commonPart += bornDay;
@@ -120,16 +117,18 @@ var mxk = {
                         return name;
                     },
 
-    removeBadWordsRFC: function(word){
-        if(word in this.badWordsRFC) {
-            word[3] = 'X'
+    removeBadWords: function(word, type){
+
+        if (type == 0){
+            badWordsList = this.badWordsCURP
+        } else {
+            badWordsList = this.badWordsRFC
         }
-        return word;
-    },
-    removeBadWordsCURP: function(word){
-        if(this.badWordsCURP[word]){
-            return this.badWordsCURP[word]
+
+        if(badWordsList[word]){
+            return badWordsList[word]
         }
+
         return word;
     },
 
@@ -262,47 +261,47 @@ var mxk = {
         "WUEY": "WXEY"
     },
 
-    badWordsRFC : [
-                    "BUEI",
-                    "BUEY",
-                    "CACA",
-                    "CACO",
-                    "CAGA",
-                    "CAGO",
-                    "CAKA",
-                    "COGE",
-                    "COJA",
-                    "COJE",
-                    "COJI",
-                    "COJO",
-                    "CULO",
-                    "FETO",
-                    "GUEY",
-                    "JOTO",
-                    "KACA",
-                    "KACO",
-                    "KAGA",
-                    "KAGO",
-                    "KOGE",
-                    "KOJO",
-                    "KAKA",
-                    "KULO",
-                    "MAME",
-                    "MAMO",
-                    "MEAR",
-                    "MEON",
-                    "MION",
-                    "MOCO",
-                    "MULA",
-                    "PEDA",
-                    "PEDO",
-                    "PENE",
-                    "PUTA",
-                    "PUTO",
-                    "QULO",
-                    "RATA",
-                    "RUIN",
-                ],
+    badWordsRFC : {
+                    "BUEI": "BUEX",
+                    "BUEY": "BUEX",
+                    "CACA": "CACX",
+                    "CACO": "CACX",
+                    "CAGA": "CAGX",
+                    "CAGO": "CAGX",
+                    "CAKA": "CAKX",
+                    "COGE": "COGX",
+                    "COJA": "COJX",
+                    "COJE": "COJX",
+                    "COJI": "COJX",
+                    "COJO": "COJX",
+                    "CULO": "CULX",
+                    "FETO": "FETX",
+                    "GUEY": "GUEX",
+                    "JOTO": "JOTX",
+                    "KACA": "KACX",
+                    "KACO": "KACX",
+                    "KAGA": "KAGX",
+                    "KAGO": "KAGX",
+                    "KOGE": "KOGX",
+                    "KOJO": "KOJX",
+                    "KAKA": "KAKX",
+                    "KULO": "KULX",
+                    "MAME": "MAMX",
+                    "MAMO": "MAMX",
+                    "MEAR": "MEAX",
+                    "MEON": "MEOX",
+                    "MION": "MIOX",
+                    "MOCO": "MOCX",
+                    "MULA": "MULX",
+                    "PEDA": "PEDX",
+                    "PEDO": "PEDX",
+                    "PENE": "PENX",
+                    "PUTA": "PUTX",
+                    "PUTO": "PUTX",
+                    "QULO": "QULX",
+                    "RATA": "RATX",
+                    "RUIN": "RUIX",
+                },
     characterValues: {
                 "0" :  '00',
                 "1" :  '01',
