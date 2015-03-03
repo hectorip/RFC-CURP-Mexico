@@ -350,9 +350,5 @@ var mxk = {
             option = new Option(state.name, state.code)
             element.appendChild(option)
         });
-    // setRFCResultField: function(field_id){
-    //     element= document.getElementById(field_id)
-    // }  
-    //}
     }
 }
