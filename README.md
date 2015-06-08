@@ -3,9 +3,9 @@ RFC-CURP-Mexico
 
 Algorithm for getting RFC(Federal Taxpayer Register) and CURP(Unique Population Registry Code) for México, implemented in Javascript.
 
-*Notes: The last characte of the CURP is a randomly picked in the moment of generating the curp the first time by neational authorities, so we cannot calcute it realiably.*
+*Notes: The last character of the CURP is randomly picked in the moment of generating the curp the first time by national authorities, so we cannot calcute it realiably.*
 
-Based on official Documents:
+Based on official documents:
 
 CURP https://dl.dropbox.com/u/38547143/InstructivoParaLaCurp_v2008.pdf
 
