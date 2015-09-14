@@ -2,11 +2,11 @@
 var StringUtilities = {
     getFirstInternVowel: function(word){
         vowels = word.substring(1).match(new RegExp('[AEIOU]'));
-        return vowels ? vowels[0] : 'X';
+        return vowels[0] || 'X';
     },
     getFirstInternConsonant: function(word){
         vowels = word.substring(1).match(new RegExp('[BCDFGHJKLMNPQRSTUVWXYZ]'));
-        return vowels ? vowels[0] : 'X';
+        return vowels[0] || 'X';
     },
     clearString: function(word) {
 
