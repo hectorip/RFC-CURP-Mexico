@@ -37,34 +37,31 @@ var mxk = {
 
     getCURP: function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, bornState, gender) {
 
-                            name            = StringUtilities.clearString(name);
-                            name            = this.removeCommonNames(name);
-                            surnameFather   = StringUtilities.clearString(surnameFather);
-                            surnameMother   = StringUtilities.clearString(surnameMother);
-                            bornDay         = StringUtilities.clearString(bornDay);
-                            bornMonth       = StringUtilities.clearString(bornMonth);
-                            bornYear        = StringUtilities.clearString(bornYear);
+                name            = StringUtilities.clearString(name);
+                name            = this.removeCommonNames(name);
+                surnameFather   = StringUtilities.clearString(surnameFather);
+                surnameMother   = StringUtilities.clearString(surnameMother);
+                bornDay         = StringUtilities.clearString(bornDay);
+                bornMonth       = StringUtilities.clearString(bornMonth);
+                bornYear        = StringUtilities.clearString(bornYear);
 
-                            curp = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear,0);
-                            
-                            //TODO Remove bad words
+                curp = this.getCommonPart(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear,0);
+                
+                //TODO Remove bad words
 
-                            curp += this.getGenderLetter(gender);
-                            if(bornState.length !== 2){
-                                bornState = this.getBornStateCode(bornState);
-                            } 
-                            curp += born_state
-                            curp += StringUtilities.getFirstInternConsonant(surnameFather);
-                            curp += StringUtilities.getFirstInternConsonant(surnameMother);
-                            curp += StringUtilities.getFirstInternConsonant(name);
+                curp += this.getGenderLetter(gender);
+                if(bornState.length !== 2){
+                    bornState = this.getBornStateCode(bornState);
+                } 
+                curp += born_state
+                curp += StringUtilities.getFirstInternConsonant(surnameFather);
+                curp += StringUtilities.getFirstInternConsonant(surnameMother);
+                curp += StringUtilities.getFirstInternConsonant(name);
 
-                            curp += this.getSpecialChar(bornYear);
-                            curp += "?" // The last character is a random cahracter
-
-
-                            return curp;
-
-                    },
+                curp += this.getSpecialChar(bornYear);
+                curp += "?" // The last character is a random cahracter
+                return curp;
+            },
     getRFC: function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, bornState, gender) {
 
         name            = StringUtilities.clearString(name);
