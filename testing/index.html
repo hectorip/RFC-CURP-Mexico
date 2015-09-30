@@ -1,84 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="foundation/css/foundation.css" />
     <link rel="stylesheet" href="foundation/css/foundation-datepicker.css" />
     <script src="foundation/js/vendor/modernizr.js"></script>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 
-	<title> Mexican RFC and Curp Example</title>
+    <title> Mexican RFC and Curp Example</title>
 </head>
 <body>
-	<h1>Mexican RFC and Curp</h1>
-	<form action="">
-		
-		<div class="row">
-		    <div class="large-12 columns">
-		      <label> Name
-		        <input type="text" placeholder="Name" id="name-input" name="name-input"/>
-		      </label>
-		    </div>
-		</div>
+    <h1>Mexican RFC and Curp</h1>
+    <form action="">
+        
+        <div class="row">
+            <div class="large-12 columns">
+              <label> Name
+                <input type="text" placeholder="Name" id="name-input" name="name-input"/>
+              </label>
+            </div>
+        </div>
 
-		<div class="row">
-		    <div class="large-12 columns">
-		      <label> Surname 1
-		        <input type="text" placeholder="First surname" name="surname1-input" id="surname1-input"/>
-		      </label>
-		    </div>
-		</div>
-		<div class="row">
-		    <div class="large-12 columns">
-		      <label> Surname 2
-		        <input type="text" placeholder="Second Surame" name="surname2-input" id="surname2-input"/>
-		      </label>
-		    </div>
-		</div>
-		<div class="row">
-		    <div class="large-12 columns">
-		      <label> Born Date
-		        <input type="text" placeholder="Born date" name="born-date-input" id="born-date-input"/>
-		      </label>
-		    </div>
-		</div>
+        <div class="row">
+            <div class="large-12 columns">
+              <label> Surname 1
+                <input type="text" placeholder="First surname" name="surname1-input" id="surname1-input"/>
+              </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+              <label> Surname 2
+                <input type="text" placeholder="Second Surame" name="surname2-input" id="surname2-input"/>
+              </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+              <label> Born Date
+                <input type="text" placeholder="Born date" name="born-date-input" id="born-date-input"/>
+              </label>
+            </div>
+        </div>
 
-		<div class="row">
-		    <div class="large-12 columns">
-		      <label> Born State
-		        <select placeholder="Select state" name="born-state-select" id="born-state-select">
-		        </select>
-		      </label>
-		    </div>
-		</div>
+        <div class="row">
+            <div class="large-12 columns">
+              <label> Born State
+                <select placeholder="Select state" name="born-state-select" id="born-state-select">
+                </select>
+              </label>
+            </div>
+        </div>
 
-		 <div class="row">
-		    <div class="large-12 columns">
-		      <label> Born State
-		        <select placeholder="Select gender" name="gender-select" id="gender-select">
-		        	<option value = "1"> Male </option>
-		        	<option value = "2"> Female </option>
-		        </select>
-		      </label>
-		    </div>
-		</div>
+         <div class="row">
+            <div class="large-12 columns">
+              <label> Born State
+                <select placeholder="Select gender" name="gender-select" id="gender-select">
+                    <option value = "1"> Male </option>
+                    <option value = "2"> Female </option>
+                </select>
+              </label>
+            </div>
+        </div>
 
-		<div class="row">
-		    <div class="large-12 columns">
-				<a href="#" class="button" id='calculateButton'>Calculate</a>
-			</div>
-		</div>
-		<div class = "row">
-			<div class="large-12 columns">
-		      <label> Result RFC
-		        <input type="text" placeholder="CURP" disabled="disabled" name="result_field" id="result_field"/>
-		      </label>
-		    </div>
-		</div>
+        <div class="row">
+            <div class="large-12 columns">
+                <a href="#" class="button" id='calculateButton'>Calculate</a>
+            </div>
+        </div>
+        <div class = "row">
+            <div class="large-12 columns">
+              <label> Result RFC
+                <input type="text" placeholder="CURP" disabled="disabled" name="result_field" id="result_field"/>
+              </label>
+            </div>
+        </div>
 
-	</form>
+    </form>
 
     <script src="foundation/js/vendor/jquery.js"></script>
     <script src="foundation/js/foundation.min.js"></script>
@@ -92,31 +92,31 @@
         $('#born-date-input').fdatepicker({"format" : "dd/mm/yy"});
         $('#calculateButton').click(function(event){
 
-        	event.preventDefault();
-        	event.stopPropagation();
+            event.preventDefault();
+            event.stopPropagation();
 
 
-        	name = $('#name-input').val();
-        	surname1 = $('#surname1-input').val();
-        	surname2 = $('#surname2-input').val();
+            name = $('#name-input').val();
+            surname1 = $('#surname1-input').val();
+            surname2 = $('#surname2-input').val();
 
-        	bornDate = $('#born-date-input').val();
-        	bornState = $('#born-state-select').val();
-        	gender = $('#gender-select').val();
+            bornDate = $('#born-date-input').val();
+            bornState = $('#born-state-select').val();
+            gender = $('#gender-select').val();
 
-        	bornDateSeparated = bornDate.split('/');
+            bornDateSeparated = bornDate.split('/');
 
-        	// alert('gender '+ gender); return 0;
+            // alert('gender '+ gender); return 0;
 
-        	result = mxk.getCURP(name, surname1, surname2, bornDateSeparated[0], bornDateSeparated[1], bornDateSeparated[2],bornState,gender);
+            result = mxk.getCURP(name, surname1, surname2, bornDateSeparated[0], bornDateSeparated[1], bornDateSeparated[2],bornState,gender);
 
-        	$('#result_field').val(result);
+            $('#result_field').val(result);
 
         });
 
         stateSelect = $('#born-state-select');
         for(idState in mxk.states) {
-        	stateSelect.append(new Option(mxk.states[idState].name, idState));
+            stateSelect.append(new Option(mxk.states[idState].name, idState));
         }
 
 
