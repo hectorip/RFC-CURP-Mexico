@@ -1,6 +1,6 @@
 
 var StringUtilities = {
-    getFirstInternVowel: function(word){
+    getFirstInternalVowel: function(word){
         vowels = word.substring(1).match(new RegExp('[AEIOU]'));
         return vowels[0] || 'X';
     },
@@ -80,7 +80,7 @@ var mxk = {
     getCommonPart:  function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, type) {
         
                             commonPart = surnameFather[0];
-                            commonPart += StringUtilities.getFirstInternVowel(surnameFather);
+                            commonPart += StringUtilities.getFirstInternalVowel(surnameFather);
                             commonPart += surnameMother[0];
                             commonPart += name[0];
                             commonPart = this.removeBadWords(commonPart, type)
