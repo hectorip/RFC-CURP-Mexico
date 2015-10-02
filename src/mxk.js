@@ -4,7 +4,7 @@ var StringUtilities = {
         vowels = word.substring(1).match(new RegExp('[AEIOU]'));
         return vowels[0] || 'X';
     },
-    getFirstInternConsonant: function(word){
+    getFirstInternalConsonant: function(word){
         vowels = word.substring(1).match(new RegExp('[BCDFGHJKLMNPQRSTUVWXYZ]'));
         return vowels[0] || 'X';
     },
@@ -54,9 +54,9 @@ var mxk = {
                     bornState = this.getBornStateCode(bornState);
                 } 
                 curp += born_state
-                curp += StringUtilities.getFirstInternConsonant(surnameFather);
-                curp += StringUtilities.getFirstInternConsonant(surnameMother);
-                curp += StringUtilities.getFirstInternConsonant(name);
+                curp += StringUtilities.getFirstInternalConsonant(surnameFather);
+                curp += StringUtilities.getFirstInternalConsonant(surnameMother);
+                curp += StringUtilities.getFirstInternalConsonant(name);
 
                 curp += this.getSpecialChar(bornYear);
                 curp += "?" // The last character is a random cahracter
