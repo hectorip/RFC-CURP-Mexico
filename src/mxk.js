@@ -48,7 +48,9 @@ var mxk = {
                 name            = StringUtilities.clearString(name);
                 name            = this.removeCommonNames(name);
                 surnameFather   = StringUtilities.clearString(surnameFather);
+                surnameFather   = this.removePrefixes(surnameFather);
                 surnameMother   = StringUtilities.clearString(surnameMother);
+                surnameMother   = this.removePrefixes(surnameMother);
                 bornDay         = StringUtilities.clearString(bornDay);
                 bornMonth       = StringUtilities.clearString(bornMonth);
                 bornYear        = StringUtilities.clearString(bornYear);
@@ -121,6 +123,15 @@ var mxk = {
                         
                         return name;
                     },
+    removePrefixes: function(name) {
+                        this.prefixes.forEach(
+                            function(notAccepted){
+                                name = name.replace(new RegExp('^' + notAccepted),'');
+                            }   
+                            );
+                        
+                        return name;
+                    },
 
     removeBadWords: function(word, type){
 
@@ -182,6 +193,10 @@ var mxk = {
         'M. ',
         'J. ',
         'J '
+        ),
+    prefixes: new Array(
+        'DE ',
+        'DEL '
         ),
     badWordsCURP: {
         "BACA": "BXCA",
