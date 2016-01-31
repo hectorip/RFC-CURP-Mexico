@@ -2,11 +2,19 @@
 var StringUtilities = {
     getFirstInternalVowel: function(word){
         vowels = word.substring(1).match(new RegExp('[AEIOU]'));
-        return vowels[0] || 'X';
+        if(vowels){
+            return vowels[0] || 'X';
+        } else {
+            return 'X'
+        }
     },
     getFirstInternalConsonant: function(word){
         vowels = word.substring(1).match(new RegExp('[BCDFGHJKLMNPQRSTUVWXYZ]'));
-        return vowels[0] || 'X';
+        if(vowels){
+            return vowels[0] || 'X';
+        } else {
+            return 'X'
+        }
     },
     clearString: function(word) {
 
@@ -81,7 +89,7 @@ var mxk = {
         
                             commonPart = surnameFather[0];
                             commonPart += StringUtilities.getFirstInternalVowel(surnameFather);
-                            commonPart += surnameMother[0];
+                            commonPart += surnameMother[0] || 'X';
                             commonPart += name[0];
                             commonPart = this.removeBadWords(commonPart, type)
                             commonPart += bornYear.substring(2);
