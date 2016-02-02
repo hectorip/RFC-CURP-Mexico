@@ -1,4 +1,3 @@
-
 var StringUtilities = {
     getFirstInternalVowel: function(word){
         vowels = word.substring(1).match(new RegExp('[AEIOU]'));
@@ -30,7 +29,7 @@ var StringUtilities = {
             'É': 'E',
             'Í': 'I',
             'Ó': 'O',
-            'Ú': 'U' 
+            'Ú': 'U'
         }
 
         for(accented in accents) {
@@ -88,7 +87,6 @@ var mxk = {
     },
 
     getCommonPart:  function(name, surnameFather, surnameMother, bornDay, bornMonth, bornYear, type) {
-        
                             commonPart = surnameFather[0];
                             commonPart += StringUtilities.getFirstInternalVowel(surnameFather);
                             commonPart += surnameMother[0] || 'X';
@@ -97,9 +95,7 @@ var mxk = {
                             commonPart += bornYear.substring(2);
                             commonPart += bornMonth;
                             commonPart += bornDay;
-
-                            //todo, remove bad words
-                             return commonPart;
+                            return commonPart;
                     },
     getBornStateCode: function(idState){        
                         return this.states[idState].code;
