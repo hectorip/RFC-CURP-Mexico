@@ -11,3 +11,6 @@ I will soon create a version in ES6,finally a decent version of JS.
 The official documents are in the "docs" folder.
 
 
+NOTE: THIS IS A LOG TIME WORK IN PROGRESS NOT FINISHED YET
+
+
