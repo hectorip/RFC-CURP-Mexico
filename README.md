@@ -7,4 +7,8 @@ Algorithm for getting RFC(Federal Taxpayer Register) and CURP(Unique Population 
 *Note: The last character of the CURP is randomly picked at the moment of generating the curp the first time by national authorities, so we cannot calcute it realiably.*
 
 
+##How to install:
+
+```npm i --save mx-document-generator```
+
 The official documents are in the "docs" folder.
