@@ -1,17 +1,17 @@
 import DocumentGenerator from '../lib/DocumentGenerator'
 
-const name = 'Maria'
-const surnameFather = 'Ronalda'
-const surnameMother = 'Frida'
-const [birthDay, birthMonth, birthYear] = ('02-02-1992').split('-')
-const birthState = 'Baja California'
+const name = 'Ronaldo'
+const surnameFather = 'Sebastião'
+const surnameMother = 'Lepes'
+const [birthDay, birthMonth, birthYear] = ('02-02-1968').split('-')
+const birthState = 'Puebla'
 const gender = 'F'
 
 test('RFC generator', () => {
   const rfc = DocumentGenerator.getRFC(name, surnameFather, surnameMother, birthDay, birthMonth, birthYear)
   console.log({ rfc })
 
-  expect(rfc).toBe('ROFM920202')
+  expect(rfc).toBe('SELR680202')
 })
 
 test('CURP generator', () => {
@@ -19,5 +19,5 @@ test('CURP generator', () => {
 
   console.log({ curp })
 
-  expect(curp.slice(0, -1)).toBe('ROFM920202MBCNRR0')
+  expect(curp).toBe('SELR680202MPLBPN04')
 })

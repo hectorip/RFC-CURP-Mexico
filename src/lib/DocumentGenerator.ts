@@ -30,7 +30,7 @@ export default class DocumentGenerator {
     curp += StringUtils.getFirstInternalConsonant(name)
 
     curp += DocumentGenerator.getSpecialChar(bornYear)
-    curp += DocumentGenerator.getRandomInt(0, 9)
+    curp += DocumentGenerator.getLastCURPDigit(curp)
     return curp
   }
 
@@ -114,12 +114,14 @@ export default class DocumentGenerator {
   static states = {
     'AGUASCALIENTES': 'AS',
     'BAJA CALIFORNIA': 'BC',
+    'BAJA CALIFORNIA NORTE': 'BC',
     'BAJA CALIFORNIA SUR': 'BS',
     'CAMPECHE': 'CC',
     'COAHUILA': 'CL',
     'COLIMA': 'CM',
     'CHIAPAS': 'CS',
     'CHIHUAHUA': 'CH',
+    'CIUDAD DE MEXICO': 'DF',
     'DISTRITO FEDERAL': 'DF',
     'DURANGO': 'DG',
     'GUANAJUATO': 'GT',
@@ -135,7 +137,7 @@ export default class DocumentGenerator {
     'PUEBLA': 'PL',
     'QUERETARO': 'QT',
     'QUINTANA ROO': 'QR',
-    'SAN LUIS POTOSÍ': 'SP',
+    'SAN LUIS POTOSI': 'SP',
     'SINALOA': 'SL',
     'SONORA': 'SR',
     'TABASCO': 'TC',
@@ -247,10 +249,18 @@ export default class DocumentGenerator {
     'WUEY': 'WXEY'
   }
 
-  static getRandomInt = (min: number, max: number): number => {
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min + 1)) + min
+  static getLastCURPDigit = (incompleteCurp: string) => {
+    const dictionary = '0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'
+    let lnSum = 0.0
+    let lnDigt = 0.0
+
+    for (let i = 0; i < 17; i++) {
+      lnSum = lnSum + dictionary.indexOf(incompleteCurp.charAt(i)) * (18 - i)
+    }
+
+    lnDigt = 10 - lnSum % 10
+    if (lnDigt === 10) return 0
+    return lnDigt
   }
 
   static badWordsRFC = {
