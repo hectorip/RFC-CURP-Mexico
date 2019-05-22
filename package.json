@@ -1,6 +1,6 @@
 {
   "name": "mx-document-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library to generate RFC and CURP",
   "main": "dist/lib/index.js",
   "directories": {
@@ -12,7 +12,8 @@
     "type-check:watch": "npm run type-check -- --watch",
     "build": "rm -rf dist && npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline"
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+    "deploy": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
