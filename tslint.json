@@ -1,0 +1,12 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+      "tslint-config-standard"
+  ],
+  "jsRules": {},
+  "rules": {
+      "ordered-imports": false,
+      "import-name": false
+  },
+  "rulesDirectory": []
+}

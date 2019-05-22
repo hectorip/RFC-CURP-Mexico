@@ -1,0 +1,57 @@
+{
+  "name": "RFC-CURP-Mexico",
+  "version": "1.0.0",
+  "description": "RFC-CURP-Mexico ===============",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "rm -rf dist && npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smaniotov/RFC-CURP-Mexico.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smaniotov/RFC-CURP-Mexico/issues"
+  },
+  "homepage": "https://github.com/smaniotov/RFC-CURP-Mexico#readme",
+  "jest": {
+    "transform": {
+      ".+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": ".+\\.test.(tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.4.0",
+    "@babel/plugin-proposal-class-properties": "7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.4.0",
+    "@babel/preset-env": "7.4.1",
+    "@babel/preset-typescript": "7.3.3",
+    "@types/jest": "24.0.13",
+    "jest": "24.8.0",
+    "jest-react-native": "18.0.0",
+    "ts-jest": "24.0.2",
+    "tslint": "5.16.0",
+    "tslint-config-standard": "8.0.1",
+    "typescript": "3.3.3"
+  }
+}
