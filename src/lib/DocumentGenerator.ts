@@ -60,7 +60,8 @@ export default class DocumentGenerator {
   }
 
   static getBornStateCode (stateName: string) {
-    const parsedStateName = StringUtils.removeAccents(stateName).toUpperCase()
+    const { clearString, removeAccents } = StringUtils
+    const parsedStateName = removeAccents(clearString(stateName))
     return DocumentGenerator.states[parsedStateName]
   }
 
