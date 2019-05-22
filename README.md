@@ -1,4 +1,4 @@
-#mx-document-generator
+mx-document-generator
 ===============
 *Made 100% in Typescript*
 
