@@ -1,6 +1,6 @@
 {
   "name": "mx-document-generator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Library to generate RFC and CURP",
   "main": "dist/lib/index.js",
   "directories": {
