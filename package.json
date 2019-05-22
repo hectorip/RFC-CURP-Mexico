@@ -1,8 +1,8 @@
 {
-  "name": "RFC-CURP-Mexico",
+  "name": "mx-document-generator",
   "version": "1.0.0",
-  "description": "RFC-CURP-Mexico ===============",
-  "main": "index.js",
+  "description": "Library to generate RFC and CURP",
+  "main": "dist/lib/index.js",
   "directories": {
     "doc": "docs"
   },
@@ -18,12 +18,9 @@
     "type": "git",
     "url": "git+https://github.com/smaniotov/RFC-CURP-Mexico.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["rfc", "curp", "mx", "mexico-documents", "document"],
+  "author": "Héctor Iván Patricio & Vinícius O. Smanioto",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/smaniotov/RFC-CURP-Mexico/issues"
-  },
   "homepage": "https://github.com/smaniotov/RFC-CURP-Mexico#readme",
   "jest": {
     "transform": {
