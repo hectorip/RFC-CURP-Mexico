@@ -1,6 +1,6 @@
 export default class StringUtilities {
   static getFirstInternalVowel = (word: string) => {
-    const vowels = word.substring(1).match(new RegExp('[AEIOU]'))
+    const vowels = word.substring(1).match(/[AEIOU]/)
     if (vowels) {
       return vowels[0] || 'X'
     } else {
@@ -9,9 +9,10 @@ export default class StringUtilities {
   }
 
   static getFirstInternalConsonant = (word: string) => {
-    const vowels = word.substring(1).match(new RegExp('[BCDFGHJKLMNPQRSTUVWXYZ]'))
-    if (vowels) {
-      return vowels[0] || 'X'
+    const consonant = word.substring(1).match(/[BCDFGHJKLMNPQRSTVWXYZ]/)
+  
+    if (consonant) {
+      return consonant[0] || 'X'
     } else {
       return 'X'
     }
