@@ -19,7 +19,13 @@
     "type": "git",
     "url": "git+https://github.com/smaniotov/RFC-CURP-Mexico.git"
   },
-  "keywords": ["rfc", "curp", "mx", "mexico-documents", "document"],
+  "keywords": [
+    "rfc",
+    "curp",
+    "mx",
+    "mexico-documents",
+    "document"
+  ],
   "author": "Héctor Iván Patricio & Vinícius O. Smanioto",
   "license": "ISC",
   "homepage": "https://github.com/smaniotov/RFC-CURP-Mexico#readme",
